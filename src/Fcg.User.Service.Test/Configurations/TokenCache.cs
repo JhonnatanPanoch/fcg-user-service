@@ -16,7 +16,7 @@ public static class TokenCache
 
         var jwtService = services.GetRequiredService<IJwtAppService>();
 
-        var token = jwtService.GerarToken("admin@email.com", RoleEnum.Admin.ToString());
+        var token = jwtService.GerarToken(Guid.NewGuid(), "admin@email.com", RoleEnum.Admin.ToString());
         _adminToken = token;
        
         return token;
@@ -29,7 +29,7 @@ public static class TokenCache
 
         var jwtService = services.GetRequiredService<IJwtAppService>();
 
-        var token = jwtService.GerarToken( "user@email.com", RoleEnum.Usuario.ToString());
+        var token = jwtService.GerarToken(Guid.NewGuid(), "user@email.com", RoleEnum.Usuario.ToString());
         _userToken = token;
         
         return token;

@@ -2,5 +2,5 @@
 
 public interface IJwtAppService
 {
-    string GerarToken(string email, string role);
+    string GerarToken(Guid idUsuario, string email, string role);
 }

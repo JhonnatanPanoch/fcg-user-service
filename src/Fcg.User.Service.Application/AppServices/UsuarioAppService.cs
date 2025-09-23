@@ -37,7 +37,7 @@ public class UsuarioAppService : IUsuarioAppService
             throw new AuthenticationException("Houve um erro ao efetuar login, verifique os dados e tente novamente.");
         }
 
-        return _jwtAppService.GerarToken(usuario.Email, usuario.Role.ToString());
+        return _jwtAppService.GerarToken(usuario.Id, usuario.Email, usuario.Role.ToString());
     }
 
     public async Task<IEnumerable<UsuarioDto>> ObterTodosAsync()
