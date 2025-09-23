@@ -7,7 +7,7 @@ public class DbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
     public AppDbContext CreateDbContext(string[] args)
     {
-        var basePath = Path.Combine(Directory.GetCurrentDirectory(), "..", "Fcg.WebApi");
+        var basePath = Path.Combine(Directory.GetCurrentDirectory(), "..", "Fcg.User.Service.Api");
 
         var configuration = new ConfigurationBuilder()
             .SetBasePath(basePath) 
