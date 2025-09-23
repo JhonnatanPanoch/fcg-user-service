@@ -7,8 +7,6 @@ using Fcg.User.Service.Application.ApiSettings;
 using Fcg.User.Service.Application.AppServices;
 using Fcg.User.Service.Application.Interfaces;
 using Fcg.User.Service.Domain.Interfaces;
-using Fcg.User.Service.Domain.Interfaces.Services;
-using Fcg.User.Service.Domain.Services;
 using Fcg.User.Service.Infra.Contexts;
 using Fcg.User.Service.Infra.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -46,7 +44,6 @@ builder.Services.AddScoped<IUsuarioAutenticadoAppService, UsuarioAutenticadoAppS
 builder.Services.AddScoped<IContaAppService, ContaAppService>();
 
 /// Domains
-builder.Services.AddScoped<ICompraService, CompraService>();
 
 /// Repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -58,7 +55,7 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "Fiap Cloud Games API", Version = "v1" });
+    c.SwaggerDoc("v1", new() { Title = "Serviço de Usuários e Autenticação", Version = "v1", Description = "Este serviço é o \"dono\" da identidade do usuário. Ele gerencia quem são os usuários e como eles se autenticam." });
     c.EnableAnnotations();
     var securityScheme = new OpenApiSecurityScheme
     {

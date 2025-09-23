@@ -12,7 +12,6 @@ public class UsuarioEntity : EntityBase
 
     public RoleEnum Role { get; set; } = RoleEnum.Usuario;
 
-    public virtual List<JogoAdquiridoEntity> JogosAdquiridos { get; set; } = [];
 
     public UsuarioEntity()
     {
@@ -23,14 +22,12 @@ public class UsuarioEntity : EntityBase
         string nome,
         string email,
         string senhaHash,
-        RoleEnum role,
-        List<JogoAdquiridoEntity> jogosAdquiridos)
+        RoleEnum role)
     {
         Id = id;
         Nome = nome;
         Email = email;
         SenhaHash = senhaHash;
         Role = role;
-        JogosAdquiridos = jogosAdquiridos;
     }
 }

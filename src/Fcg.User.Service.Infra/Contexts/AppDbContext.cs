@@ -8,9 +8,6 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<UsuarioEntity> Usuarios => Set<UsuarioEntity>();
-    public DbSet<JogoEntity> Jogos => Set<JogoEntity>();
-    public DbSet<JogoAdquiridoEntity> JogosAdquiridos => Set<JogoAdquiridoEntity>();
-    public DbSet<PromocaoEntity> Promocoes => Set<PromocaoEntity>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -17,8 +17,6 @@ public class UsuarioEntityUnitTests
         usuario.Email.Should().BeEmpty();
         usuario.SenhaHash.Should().BeEmpty();
         usuario.Role.Should().Be(RoleEnum.Usuario);
-        usuario.JogosAdquiridos.Should().NotBeNull();
-        usuario.JogosAdquiridos.Should().BeEmpty();
     }
 
     [Fact]
@@ -30,10 +28,9 @@ public class UsuarioEntityUnitTests
         var email = "admin@gmail.com";
         var senhaHash = "Admin@123";
         var role = RoleEnum.Admin;
-        var jogos = new List<JogoAdquiridoEntity>();
 
         // Act
-        var usuario = new UsuarioEntity(id, nome, email, senhaHash, role, jogos);
+        var usuario = new UsuarioEntity(id, nome, email, senhaHash, role);
 
         // Assert
         usuario.Id.Should().Be(id);
@@ -41,6 +38,5 @@ public class UsuarioEntityUnitTests
         usuario.Email.Should().Be(email);
         usuario.SenhaHash.Should().Be(senhaHash);
         usuario.Role.Should().Be(role);
-        usuario.JogosAdquiridos.Should().BeSameAs(jogos);
     }
 }

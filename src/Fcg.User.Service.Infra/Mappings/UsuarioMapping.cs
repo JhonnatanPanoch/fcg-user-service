@@ -29,9 +29,5 @@ public class UsuarioMapping : IEntityTypeConfiguration<UsuarioEntity>
 
         builder.Property(u => u.Role)
             .IsRequired();
-
-        builder.HasMany(u => u.JogosAdquiridos)
-            .WithOne(j => j.Usuario)
-            .HasForeignKey(j => j.UsuarioId);
     }
 }

@@ -21,5 +21,9 @@
 	  <ProjectReference Include="..\Fcg.User.Service.Application\Fcg.User.Service.Application.csproj" />
 	  <ProjectReference Include="..\Fcg.User.Service.Domain\Fcg.User.Service.Domain.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Migrations\" />
+	</ItemGroup>
 	
 </Project>

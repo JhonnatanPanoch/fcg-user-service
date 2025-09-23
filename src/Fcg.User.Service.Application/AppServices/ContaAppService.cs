@@ -1,5 +1,6 @@
 ﻿using Fcg.User.Service.Application.Dtos.Conta;
 using Fcg.User.Service.Application.Interfaces;
+using Fcg.User.Service.Domain.Entities;
 using Fcg.User.Service.Domain.Exceptions;
 using Fcg.User.Service.Domain.Interfaces;
 using Microsoft.Extensions.Logging;
@@ -54,14 +55,22 @@ public class ContaAppService : IContaAppService
             Email = usuario.Email,
             Nome = usuario.Nome,
             Id = usuario.Id,
-            Jogos = usuario.JogosAdquiridos.Select(jogo => new JogosContaDto
-            {
-                IdComprovante = jogo.Id,
-                Nome = jogo.Jogo.Nome,
-                Descricao = jogo.Jogo.Descricao,
-                ValorPago = jogo.PrecoPago,
-                DataAquisicao = jogo.DataAquisicao,
-            }).ToList()
+            Jogos = ObterJogosDaConta(usuario)
         };
+    }
+
+    private static List<JogosContaDto> ObterJogosDaConta(UsuarioEntity usuario)
+    {
+        // TODO: Implementar quando o microserviço de jogos estiver pronto
+        return null;
+
+        //return usuario.JogosAdquiridos.Select(jogo => new JogosContaDto
+        //{
+        //    IdComprovante = jogo.Id,
+        //    Nome = jogo.Jogo.Nome,
+        //    Descricao = jogo.Jogo.Descricao,
+        //    ValorPago = jogo.PrecoPago,
+        //    DataAquisicao = jogo.DataAquisicao,
+        //}).ToList();
     }
 }
