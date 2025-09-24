@@ -28,6 +28,15 @@ public class UsuarioAutenticadoAppService : IUsuarioAutenticadoAppService
         return user.FindFirst(ClaimTypes.Email)?.Value;
     }
 
+    public Guid ObterIdUsuario()
+    {
+        var user = _httpContextAccessor.HttpContext?.User;
+        if (user == null || !Guid.TryParse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value, out Guid userId))
+            throw new ApplicationException();
+
+        return userId;
+    }
+
     public async Task<UsuarioEntity> ObterUsuarioAutenticadoAsync()
     {
         return await _usuarioRepository.ObterPorEmailAsync(ObterEmail()) ?? 

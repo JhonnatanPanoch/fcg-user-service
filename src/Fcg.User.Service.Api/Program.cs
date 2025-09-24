@@ -5,8 +5,12 @@ using Fcg.User.Service.Api.Filters;
 using Fcg.User.Service.Api.Middlewares;
 using Fcg.User.Service.Application.ApiSettings;
 using Fcg.User.Service.Application.AppServices;
+using Fcg.User.Service.Application.ClientContracts.GamePurchase;
+using Fcg.User.Service.Application.ClientContracts.Jogo;
 using Fcg.User.Service.Application.Interfaces;
 using Fcg.User.Service.Domain.Interfaces;
+using Fcg.User.Service.Infra.Clients.GamePurchase;
+using Fcg.User.Service.Infra.Clients.Jogo;
 using Fcg.User.Service.Infra.Contexts;
 using Fcg.User.Service.Infra.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -42,12 +46,15 @@ builder.Services.AddAbstractValidations();
 builder.Services.AddScoped<IUsuarioAppService, UsuarioAppService>();
 builder.Services.AddScoped<IUsuarioAutenticadoAppService, UsuarioAutenticadoAppService>();
 builder.Services.AddScoped<IContaAppService, ContaAppService>();
-
-/// Domains
+builder.Services.AddScoped<IBibliotecaAppService, BibliotecaAppService>();
 
 /// Repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+// Clients
+builder.Services.AddScoped<IGamePurchaseServiceClient, GamePurchaseServiceClient>();
+builder.Services.AddScoped<IGamesServiceClient, GamesServiceClient>();
 
 #endregion
 
@@ -149,6 +156,18 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddAuthorization();
+#endregion
+
+#region HttpClientFactories
+builder.Services.AddHttpClient("GamePurchaseService", client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["Services:GamePurchaseApiUrl"]!);
+});
+
+builder.Services.AddHttpClient("GamesService", client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["Services:GamesApiUrl"]!);
+});
 #endregion
 
 var app = builder.Build();

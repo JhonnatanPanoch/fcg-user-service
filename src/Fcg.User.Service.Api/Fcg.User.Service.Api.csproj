@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
 		<RootNamespace>Fcg.User.Service.Api</RootNamespace>
-		<Nullable>enable</Nullable>
+		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>3ec74cd6-ebda-4a81-9903-dc7d076d74be</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
