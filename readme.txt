@@ -17,3 +17,9 @@ Payload auth
   "email": "Jhonnatan@email.com",
   "senha": "Senha@123"
 }
+
+Payload auth admin
+{
+  "email": "admin@gmail.com",
+  "senha": "Admin@123"
+}
