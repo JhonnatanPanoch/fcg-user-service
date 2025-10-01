@@ -6,11 +6,11 @@ on:
 
 env:
   AWS_REGION: sa-east-1
-  ECR_REPOSITORY: fcg-games-service
-  ECS_SERVICE: fcg-games-service
+  ECR_REPOSITORY: fcg-user-service
+  ECS_SERVICE: fcg-user-service
   ECS_CLUSTER: fcg-cluster
-  ECS_TASK_DEFINITION: fcg-games-service-task
-  CONTAINER_NAME: fcg-games-service
+  ECS_TASK_DEFINITION: fcg-user-service-task
+  CONTAINER_NAME: fcg-user-service
 
 permissions:
   contents: read
