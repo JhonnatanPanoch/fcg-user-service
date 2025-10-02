@@ -17,7 +17,7 @@ public static class MigrationExtension
 
         dbContext.Database.Migrate();
 
-        var adminExists = await dbContext.Usuarios.AnyAsync(u => u.Email == "admin@gmail.com");
+        var adminExists = await dbContext.Usuarios.AnyAsync(u => u.Role == RoleEnum.Admin);
         if (!adminExists)
         {
             var adminId = Guid.NewGuid();
