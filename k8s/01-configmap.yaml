@@ -6,8 +6,8 @@ metadata:
     app: fcg-user-service
 data:
   ASPNETCORE_ENVIRONMENT: "Production"
-  Services__GamePurchaseApiUrl: "http://fcg-purchase-service"
-  Services__GamesApiUrl: "http://fcg-games-service"
+  Services__GamePurchaseApiUrl: "http://af0a9fe0ae84e45f5959613c37c7aef1-1647320439.sa-east-1.elb.amazonaws.com"
+  Services__GamesApiUrl: "http://a36809a03b605470b9d9b576bc6d98fb-1215978752.sa-east-1.elb.amazonaws.com"
   
   JwtSettings__Issuer: "FiapCloudGames"
   JwtSettings__Audience: "FiapCloudGamesUsers"

@@ -63,7 +63,7 @@ builder.Services.AddScoped<IGamesServiceClient, GamesServiceClient>();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "Servi�o de Usu�rios e Autentica��o", Version = "v1", Description = "Este servi�o � o \"dono\" da identidade do usu�rio. Ele gerencia quem s�o os usu�rios e como eles se autenticam." });
+    c.SwaggerDoc("v1", new() { Title = "Serviço de Usuários e Autentição", Version = "v1", Description = "Este serviço � o \"dono\" da identidade do usu�rio. Ele gerencia quem s�o os usu�rios e como eles se autenticam." });
     c.EnableAnnotations();
     var securityScheme = new OpenApiSecurityScheme
     {
