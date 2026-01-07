@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fcg-user-service
+  labels:
+    app: fcg-user-service
+spec:
+  type: LoadBalancer # Cria um IP externo na Cloud (AWS/Azure)
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: fcg-user-service

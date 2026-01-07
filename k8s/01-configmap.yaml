@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fcg-user-service-config
+  labels:
+    app: fcg-user-service
+data:
+  ASPNETCORE_ENVIRONMENT: "Production"
+  Services__GamePurchaseApiUrl: "http://fcg-purchase-service"
+  Services__GamesApiUrl: "http://fcg-games-service"
+  
+  JwtSettings__Issuer: "FiapCloudGames"
+  JwtSettings__Audience: "FiapCloudGamesUsers"
+  JwtSettings__ExpirationMinutes: "60"
